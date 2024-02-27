@@ -75,6 +75,7 @@ fn edit_existing_file() {
     println!("Editing existing file...");
 }
 
+
 fn create_new_file() {
     clear_screen();
     let mut filename = String::new();
@@ -105,10 +106,30 @@ fn create_new_file() {
     io::stdin().read_line(&mut label2).expect("Failed to read line");
     let label2 = label2.trim().to_owned();
 
-    // Write the labels to the file
-    writeln!(file, "{}, {}", label1, label2).expect("Failed to write to file");
+    // Determine the length of the longest label
+    let max_label_length = label1.len().max(label2.len());
+
+    let mut entries: Vec<(String, String)> = Vec::new(); // Store added entries
 
     loop {
+        print!("Enter your input for {}: ", label1);
+        io::stdout().flush().expect("Failed to flush stdout");
+        let mut input_label1 = String::new();
+        io::stdin().read_line(&mut input_label1).expect("Failed to read line");
+
+        print!("Enter your input for {}: ", label2);
+        io::stdout().flush().expect("Failed to flush stdout");
+        let mut input_label2 = String::new();
+        io::stdin().read_line(&mut input_label2).expect("Failed to read line");
+
+        // Write the entries to the file with aligned colons
+        let _ = writeln!(file, "{:<width$} : {}", label1, input_label1.trim(), width = max_label_length);
+        let _ = writeln!(file, "{:<width$} : {}", label2, input_label2.trim(), width = max_label_length);
+        let _ = writeln!(file); // Insert a blank line after each entry
+
+        // Add entries to the vector
+        entries.push((input_label1.trim().to_owned(), input_label2.trim().to_owned()));
+
         println!();
         println!("Do you want to add more entries? (Y/N)");
         print!("Enter an Option: ");
@@ -118,31 +139,33 @@ fn create_new_file() {
         let add_more = add_more.trim().to_lowercase();
 
         match add_more.as_str() {
-            "y" => {
-                print!("Enter your input for {}: ", label1);
-                io::stdout().flush().expect("Failed to flush stdout");
-                let mut input_label1 = String::new();
-                io::stdin().read_line(&mut input_label1).expect("Failed to read line");
-
-                print!("Enter your input for {}: ", label2);
-                io::stdout().flush().expect("Failed to flush stdout");
-                let mut input_label2 = String::new();
-                io::stdin().read_line(&mut input_label2).expect("Failed to read line");
-
-                writeln!(file, "{}, {}", input_label1.trim(), input_label2.trim())
-                    .expect("Failed to write to file");
-
-                continue; // Go to the next iteration of the loop
-            }
+            "y" => continue,
             "n" => {
                 println!("Entries added successfully!");
-                thread::sleep(Duration::from_secs(3));
+                println!();
+
+                // Print added entries
+                for (entry1, entry2) in &entries {
+                    println!("{:<width$} : {}", label1, entry1, width = max_label_length);
+                    println!("{:<width$} : {}", label2, entry2, width = max_label_length);
+                    println!(); // Insert a blank line after each entry
+                }
+
+                println!("Exiting to Main Menu...");
+
+                // Wait for 5 seconds
+                thread::sleep(Duration::from_secs(5));
+
                 break;
             }
             _ => println!("Invalid option!"),
         }
     }
 }
+
+
+
+
 
 
 fn exit_program() {
