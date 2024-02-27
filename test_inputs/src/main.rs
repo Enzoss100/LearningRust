@@ -78,14 +78,11 @@ fn start_program() {
 }
 
 
+
 fn edit_existing_file() {
-    let mut attempts = 5;
+    let mut attempts = 3;
 
     loop {
-        println!("Please ensure that the file has a proper name convention for this program");
-        println!("(example_fromRust.txt)");
-        println!();
-
         print!("Enter the file name: ");
         io::stdout().flush().expect("Failed to flush stdout");
 
@@ -98,8 +95,8 @@ fn edit_existing_file() {
             println!("Filename must end with '_fromRust'.");
             attempts -= 1;
             if attempts == 0 {
-                println!("Exceeded maximum attempts. Returning to main menu.");
-                return;
+                println!("Exceeded maximum attempts. Exiting the program.");
+                process::exit(0);
             }
             println!("Attempts remaining: {}", attempts);
             continue;
@@ -113,15 +110,35 @@ fn edit_existing_file() {
         };
 
         if !Path::new(&format!("{}.txt", filename)).exists() {
-            println!("File '{}' does not exist.", filename);
-            attempts -= 1;
-            if attempts == 0 {
-                println!("Exceeded maximum attempts. Returning to main menu.");
-                return;
+            println!("File '{}' is not present near this program!", filename);
+            println!("Would you like to create a new file instead? (1)");
+            println!("Would you like to exit the program instead?  (2)");
+            println!("----------------------------------------------------");
+            
+            print!("Enter an Option: ");
+            io::stdout().flush().expect("Failed to flush stdout");
+            let mut option = String::new();
+            io::stdin().read_line(&mut option).expect("Failed to read line");
+            let option = option.trim();
+
+            match option {
+                "1" => {
+                    create_new_file();
+                    return;
+                },
+                "2" => {
+                    exit_program();
+                },
+                _ => {
+                    println!("Invalid option!");
+                    continue;
+                }
             }
-            println!("Attempts remaining: {}", attempts);
-            continue;
         }
+
+        println!("Please ensure that the file has a proper name convention for this program");
+        println!("(example_fromRust.txt)");
+        println!();
 
         match fs::read_to_string(&format!("{}.txt", filename)) {
             Ok(file_content) => {
@@ -148,34 +165,29 @@ fn edit_existing_file() {
                         println!("[{}] Delete Entries by {}", index + 4, label);
                     }
                     println!("----------------------------------------------------");
+
+                    print!("Enter an Option: ");
+                    io::stdout().flush().expect("Failed to flush stdout");
                 } else {
                     println!("Invalid file format: Unable to determine labels.");
+                    continue;
                 }
             }
             Err(err) => {
                 println!("Failed to read file '{}.txt': {}", filename, err);
                 attempts -= 1;
                 if attempts == 0 {
-                    println!("Exceeded maximum attempts. Returning to main menu.");
-                    return;
+                    println!("Exceeded maximum attempts. Exiting the program.");
+                    process::exit(0);
                 }
                 println!("Attempts remaining: {}", attempts);
             }
         }
-
-        print!("Enter an Option: ");
-        io::stdout().flush().expect("Failed to flush stdout");
-        let mut option = String::new();
-        io::stdin().read_line(&mut option).expect("Failed to read line");
-        let option = option.trim();
-
-        // Handle user input options here
-        match option {
-            // Add your option handling logic here
-            _ => println!("Invalid option!"),
-        }
     }
 }
+
+
+
 
 
 
