@@ -1,9 +1,16 @@
+use std::fs;
 use std::fs::File;
 use std::io::{self, Write};
 use std::process;
 use std::thread;
 use std::time::Duration;
 use std::process::Command;
+use std::path::Path;
+use std::collections::HashSet;
+
+// Define label1 and label2 outside any function
+static mut LABEL1: String = String::new();
+static mut LABEL2: String = String::new();
 
 fn main() {
     loop {
@@ -70,10 +77,107 @@ fn start_program() {
     }
 }
 
+
 fn edit_existing_file() {
-    // Logic for editing an existing file goes here
-    println!("Editing existing file...");
+    let mut attempts = 5;
+
+    loop {
+        println!("Please ensure that the file has a proper name convention for this program");
+        println!("(example_fromRust.txt)");
+        println!();
+
+        print!("Enter the file name: ");
+        io::stdout().flush().expect("Failed to flush stdout");
+
+        let mut filename = String::new();
+        io::stdin().read_line(&mut filename).expect("Failed to read line");
+
+        let filename = filename.trim();
+
+        if !filename.ends_with("_fromRust") {
+            println!("Filename must end with '_fromRust'.");
+            attempts -= 1;
+            if attempts == 0 {
+                println!("Exceeded maximum attempts. Returning to main menu.");
+                return;
+            }
+            println!("Attempts remaining: {}", attempts);
+            continue;
+        }
+
+        // Remove the .txt extension if present
+        let filename = if filename.ends_with(".txt") {
+            &filename[..filename.len() - 4]
+        } else {
+            filename
+        };
+
+        if !Path::new(&format!("{}.txt", filename)).exists() {
+            println!("File '{}' does not exist.", filename);
+            attempts -= 1;
+            if attempts == 0 {
+                println!("Exceeded maximum attempts. Returning to main menu.");
+                return;
+            }
+            println!("Attempts remaining: {}", attempts);
+            continue;
+        }
+
+        match fs::read_to_string(&format!("{}.txt", filename)) {
+            Ok(file_content) => {
+                println!("====================================================");
+                println!("Contents of the file  : {}.txt", filename);
+                println!("{}", file_content);
+                println!("====================================================");
+
+                let mut labels = HashSet::new();
+                for line in file_content.lines() {
+                    let parts: Vec<&str> = line.trim().split(':').map(|s| s.trim()).collect();
+                    if parts.len() >= 2 {
+                        labels.insert(parts[0]);
+                    }
+                }
+
+                if !labels.is_empty() {
+                    println!("What would you like to do to this file?");
+                    println!("[1] Add more entries");
+                    println!("[2] Change Label Names");
+                    println!("[3] Delete the File");
+
+                    for (index, label) in labels.iter().enumerate() {
+                        println!("[{}] Delete Entries by {}", index + 4, label);
+                    }
+                    println!("----------------------------------------------------");
+                } else {
+                    println!("Invalid file format: Unable to determine labels.");
+                }
+            }
+            Err(err) => {
+                println!("Failed to read file '{}.txt': {}", filename, err);
+                attempts -= 1;
+                if attempts == 0 {
+                    println!("Exceeded maximum attempts. Returning to main menu.");
+                    return;
+                }
+                println!("Attempts remaining: {}", attempts);
+            }
+        }
+
+        print!("Enter an Option: ");
+        io::stdout().flush().expect("Failed to flush stdout");
+        let mut option = String::new();
+        io::stdin().read_line(&mut option).expect("Failed to read line");
+        let option = option.trim();
+
+        // Handle user input options here
+        match option {
+            // Add your option handling logic here
+            _ => println!("Invalid option!"),
+        }
+    }
 }
+
+
 
 
 fn create_new_file() {
@@ -93,20 +197,7 @@ fn create_new_file() {
         }
     };
 
-    // Prompt for the first and second labels
-    print!("Enter the First Label: ");
-    io::stdout().flush().expect("Failed to flush stdout");
-    let mut label1 = String::new();
-    io::stdin().read_line(&mut label1).expect("Failed to read line");
-    let label1 = label1.trim().to_owned();
-
-    print!("Enter the Second Label: ");
-    io::stdout().flush().expect("Failed to flush stdout");
-    let mut label2 = String::new();
-    io::stdin().read_line(&mut label2).expect("Failed to read line");
-    let label2 = label2.trim().to_owned();
-
-    // Determine the length of the longest label
+    let (label1, label2) = get_labels();
     let max_label_length = label1.len().max(label2.len());
 
     let mut entries: Vec<(String, String)> = Vec::new(); // Store added entries
@@ -122,12 +213,10 @@ fn create_new_file() {
         let mut input_label2 = String::new();
         io::stdin().read_line(&mut input_label2).expect("Failed to read line");
 
-        // Write the entries to the file with aligned colons
         let _ = writeln!(file, "{:<width$} : {}", label1, input_label1.trim(), width = max_label_length);
         let _ = writeln!(file, "{:<width$} : {}", label2, input_label2.trim(), width = max_label_length);
-        let _ = writeln!(file); // Insert a blank line after each entry
+        let _ = writeln!(file);
 
-        // Add entries to the vector
         entries.push((input_label1.trim().to_owned(), input_label2.trim().to_owned()));
 
         println!();
@@ -144,16 +233,13 @@ fn create_new_file() {
                 println!("Entries added successfully!");
                 println!();
 
-                // Print added entries
                 for (entry1, entry2) in &entries {
                     println!("{:<width$} : {}", label1, entry1, width = max_label_length);
                     println!("{:<width$} : {}", label2, entry2, width = max_label_length);
-                    println!(); // Insert a blank line after each entry
+                    println!();
                 }
 
                 println!("Exiting to Main Menu...");
-
-                // Wait for 5 seconds
                 thread::sleep(Duration::from_secs(5));
 
                 break;
@@ -163,10 +249,19 @@ fn create_new_file() {
     }
 }
 
+fn get_label(order: &str) -> String {
+    print!("Enter the {} Label: ", order);
+    io::stdout().flush().expect("Failed to flush stdout");
+    let mut label = String::new();
+    io::stdin().read_line(&mut label).expect("Failed to read line");
+    label.trim().to_owned()
+}
 
-
-
-
+fn get_labels() -> (String, String) {
+    let label1 = get_label("First");
+    let label2 = get_label("Second");
+    (label1.clone(), label2.clone())
+}
 
 fn exit_program() {
     clear_screen();
@@ -179,13 +274,13 @@ fn about_page() {
     clear_screen();
     println!("By Enzoss100");
     println!("Programmed in: Rust Programming language");
-    println!("Version 1.4"); // Changed version
-    println!(); // Added break line
-    print_separator(41); // Separator length matches the longest option text length
-    println!("Please Select One(1) of the Given Options"); // Added message
-    println!("1 - Back to Main Menu\n2 - Exit Program");  
-    print_separator(41); // Added separator  
-    println!(); // Added break line
+    println!("Version 1.4");
+    println!();
+    print_separator(41);
+    println!("Please Select One(1) of the Given Options");
+    println!("1 - Back to Main Menu\n2 - Exit Program");
+    print_separator(41);
+    println!();
     loop {
         print!("Enter an Option: ");
         io::stdout().flush().expect("Failed to flush stdout");
@@ -205,12 +300,12 @@ fn updates_page() {
     println!("Program Version 1.4");
     println!("Changes:");
     println!("1. Added user input line descriptor for all inputs");
-    println!(); // Added break line
-    print_separator(41); // Separator length matches the longest option text length
-    println!("Please Select One(1) of the Given Options"); // Added message
+    println!();
+    print_separator(41);
+    println!("Please Select One(1) of the Given Options");
     println!("1 - Back to Main Menu\n2 - Exit Program");
-    print_separator(41); // Added separator
-    println!(); // Added break line
+    print_separator(41);
+    println!();
     loop {
         print!("Enter an Option: ");
         io::stdout().flush().expect("Failed to flush stdout");
