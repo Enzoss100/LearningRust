@@ -18,9 +18,6 @@
 | While Loops     | Used a while loop with a mutable int variable |
 
 **ChatGPT Content**
-
-| Test Inputs Project                                                               |
-| --------------------------------------------------------------------------------- |
 | Content                  | Description                                            |
 | ------------------------ | ------------------------------------------------------ |
 | User Input               | Asks user to input a value                             |
