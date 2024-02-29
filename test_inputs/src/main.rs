@@ -114,7 +114,7 @@ fn edit_existing_file() {
             println!("Would you like to create a new file instead? (1)");
             println!("Would you like to exit the program instead?  (2)");
             print_separator(40);
-            
+
             print!("Enter an Option: ");
             io::stdout().flush().expect("Failed to flush stdout");
             let mut option = String::new();
@@ -125,10 +125,10 @@ fn edit_existing_file() {
                 "1" => {
                     create_new_file();
                     return;
-                },
+                }
                 "2" => {
                     exit_program();
-                },
+                }
                 _ => {
                     println!("Invalid option!");
                     continue;
@@ -168,6 +168,14 @@ fn edit_existing_file() {
 
                     print!("Enter an Option: ");
                     io::stdout().flush().expect("Failed to flush stdout");
+                    let mut option = String::new();
+                    io::stdin().read_line(&mut option).expect("Failed to read line");
+                    let option = option.trim();
+
+                    // Consume the newline character
+                    let _ = io::stdin().read_line(&mut String::new()).expect("Failed to read line");
+
+                    // Continue with your logic based on the option
                 } else {
                     println!("Invalid file format: Unable to determine labels.");
                     continue;
@@ -185,12 +193,6 @@ fn edit_existing_file() {
         }
     }
 }
-
-
-
-
-
-
 
 fn create_new_file() {
     clear_screen();
