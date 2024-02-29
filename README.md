@@ -9,16 +9,20 @@
 | guessing_game   | Based on the Rust Book   |
 
 **Table of Conducted Tests**
-| Test Name       | Description                                   |
-| -------------   | --------------------------------------------- |
-| Hello World     | Printed "Hello World"                         |
-| Variable String | Initialized a string variable                 |
-| Variable Int    | Initialized an integer variable               |
-| If Conditional  | Tested Conditional Statements                 |
-| Comments        | Used Comments to Explain Code                 |
-| While Loops     | Used a while loop with a mutable int variable |
-| User Input      | Used the std::io library for user input       |
-| References      | First usage of references                     |
+| Test Name        | Description                                        |
+| -------------    | -------------------------------------------------- |
+| Hello World      | Printed "Hello World"                              |
+| Variable String  | Initialized a string variable                      |
+| Variable Int     | Initialized an integer variable                    |
+| If Conditional   | Tested Conditional Statements                      |
+| Comments         | Used Comments to Explain Code                      |
+| While Loops      | Used a while loop with a mutable int variable      |
+| User Input       | Used the std::io library for user input            |
+| References       | First usage of references                          |
+| Dependencies     | Using `cargo.toml` to add new crates               |
+| Match Expression | Using match expressions to find correct patterns   |
+| loop keyword     | Loops a process infinitely                         |
+| break statement  | Breaks the infinite loop                           |
 
 **ChatGPT Content**
 | Content                  | Description                                            |
