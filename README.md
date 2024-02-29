@@ -6,6 +6,7 @@
 | startRust       | First Project on Rust    |
 | bunsProject     | Small Project For Buns   |
 | test_inputs     | ChatGPT Assisted Project |
+| guessing_game   | Based on the Rust Book   |
 
 **Table of Conducted Tests**
 | Test Name       | Description                                   |
@@ -16,6 +17,8 @@
 | If Conditional  | Tested Conditional Statements                 |
 | Comments        | Used Comments to Explain Code                 |
 | While Loops     | Used a while loop with a mutable int variable |
+| User Input      | Used the std::io library for user input       |
+| References      | First usage of references                     |
 
 **ChatGPT Content**
 | Content                  | Description                                            |
