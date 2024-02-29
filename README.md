@@ -28,3 +28,5 @@
 | Pause Duration           | Pauses for a duration of time before executing again   |
 | Kill Process             | Kills the program and exits automatically              |
 | Clear Screen             | Clears the Terminal when moving to a new process       |
+| Hash Maps                | A data structure that uses heap memory                 |
+| Match case               | Possibly the Rust alt to Switches                      |
