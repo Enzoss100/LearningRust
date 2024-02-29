@@ -113,7 +113,7 @@ fn edit_existing_file() {
             println!("File '{}' is not present near this program!", filename);
             println!("Would you like to create a new file instead? (1)");
             println!("Would you like to exit the program instead?  (2)");
-            println!("----------------------------------------------------");
+            print_separator(40);
             
             print!("Enter an Option: ");
             io::stdout().flush().expect("Failed to flush stdout");
@@ -164,7 +164,7 @@ fn edit_existing_file() {
                     for (index, label) in labels.iter().enumerate() {
                         println!("[{}] Delete Entries by {}", index + 4, label);
                     }
-                    println!("----------------------------------------------------");
+                    print_separator(40);
 
                     print!("Enter an Option: ");
                     io::stdout().flush().expect("Failed to flush stdout");
