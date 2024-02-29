@@ -77,8 +77,6 @@ fn start_program() {
     }
 }
 
-
-
 fn edit_existing_file() {
     let mut attempts = 3;
 
