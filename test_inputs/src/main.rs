@@ -286,7 +286,7 @@ fn about_page() {
     clear_screen();
     println!("By Enzoss100");
     println!("Programmed in: Rust Programming language");
-    println!("Version 1.4");
+    println!("Version 0.1.8");
     println!();
     print_separator(41);
     println!("Please Select One(1) of the Given Options");
@@ -309,9 +309,11 @@ fn about_page() {
 fn updates_page() {
     clear_screen();
     println!("Updates:");
-    println!("Program Version 1.4");
+    println!("Program Version 0.1.8");
     println!("Changes:");
     println!("1. Added user input line descriptor for all inputs");
+    println!("2. Added Editing File Feature");
+    println!("3. QoL Changes to Edit File Feature");
     println!();
     print_separator(41);
     println!("Please Select One(1) of the Given Options");
