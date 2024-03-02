@@ -1,5 +1,4 @@
-use std::fs;
-use std::fs::File;
+use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write};
 use std::process;
 use std::thread;
@@ -7,6 +6,7 @@ use std::time::Duration;
 use std::process::Command;
 use std::path::Path;
 use std::collections::HashSet;
+
 
 // Define label1 and label2 outside any function
 static mut LABEL1: String = String::new();
@@ -111,10 +111,7 @@ fn edit_existing_file() {
             println!("File '{}' is not present near this program!", filename);
             println!("Would you like to create a new file instead? (1)");
             println!("Would you like to exit the program instead?  (2)");
-            print_separator(40);
 
-            print!("Enter an Option: ");
-            io::stdout().flush().expect("Failed to flush stdout");
             let mut option = String::new();
             io::stdin().read_line(&mut option).expect("Failed to read line");
             let option = option.trim();
@@ -125,7 +122,7 @@ fn edit_existing_file() {
                     return;
                 }
                 "2" => {
-                    exit_program();
+                    process::exit(0);
                 }
                 _ => {
                     println!("Invalid option!");
@@ -162,7 +159,7 @@ fn edit_existing_file() {
                     for (index, label) in labels.iter().enumerate() {
                         println!("[{}] Delete Entries by {}", index + 4, label);
                     }
-                    print_separator(40);
+                    println!("====================================================");
 
                     print!("Enter an Option: ");
                     io::stdout().flush().expect("Failed to flush stdout");
@@ -170,10 +167,22 @@ fn edit_existing_file() {
                     io::stdin().read_line(&mut option).expect("Failed to read line");
                     let option = option.trim();
 
-                    // Consume the newline character
-                    let _ = io::stdin().read_line(&mut String::new()).expect("Failed to read line");
+                    match option {
+                        "1" => {
+                            // Dynamically prompt for labels from the file
 
-                    // Continue with your logic based on the option
+                        }
+                        "2" => {
+                            // Logic to change label names
+                        }
+                        "3" => {
+                            // Logic to delete the file
+                        }
+                        _ => {
+                            println!("Invalid option!");
+                            continue;
+                        }
+                    }
                 } else {
                     println!("Invalid file format: Unable to determine labels.");
                     continue;
@@ -191,7 +200,6 @@ fn edit_existing_file() {
         }
     }
 }
-
 fn create_new_file() {
     clear_screen();
     let mut filename = String::new();
@@ -332,3 +340,4 @@ fn updates_page() {
         }
     }
 }
+
