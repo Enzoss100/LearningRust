@@ -4,3 +4,5 @@
 - Showcase of Rust Variable Mutability
 - Usage of Constants
 - Showcasing of shadowing with an inner scope
+- Variable Data Types
+    - Integers take the largest possible value in the range
