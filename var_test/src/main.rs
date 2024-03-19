@@ -90,9 +90,6 @@ fn main() {
     
     */
 
-
-
-
     // floating point integers
 
     let k: f32 = 2.147483; // 32-bit floating point integer
