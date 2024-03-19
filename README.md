@@ -26,6 +26,7 @@
 | break statement       | Breaks the infinite loop                           |
 | Mutability            | Shows how Rust allows variables to be mutable      |
 | Constants             | Shows how Rust deals with Constant variables       |
+| Data Types            | Tackles all data types: Singular and Compound      |
 
 **ChatGPT Content**
 | Content                  | Description                                            |

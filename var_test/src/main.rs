@@ -98,4 +98,50 @@ fn main() {
     println!("{k} is a 32-bit floating point integer");
     println!("{l} is a 64-bit floating point integer");
 
+    // boolean data type
+
+    let m: bool = true;
+    let n: bool = false;
+
+    println!("{m} is a TRUE boolean");
+    println!("{n} is a FALSE boolean");
+
+    // char data type
+
+    let o: char = 'A'; // char variables are stored in single quotations ('a')
+    
+    println!("{o} is a character");
+
+    // Compound Data Types
+
+    println!();
+    println!();
+    println!("This section will talk about Compound Data Types");
+
+    // Tuple Data Type
+
+    let p_hold: (char, i32, f32) = ('B',600,32.222); // stores the tuple values in a "holder"
+    let (p1,p2,p3) = p_hold; // tuple indices are distributed accordingly to p1, p2 and p3
+
+    /*
+        The Tuple data type is able to store multiple data types into a single variable
+    
+    */
+
+    println!("{p1} is a character variable");
+    println!("{p2} is a signed 32-bit integer");
+    println!("{p3} is a 32-bit floating point integer");
+
+    // Deconstructing tuples using p_hold
+
+    let p4 = p_hold.0;
+    let p5 = p_hold.1;
+    let p6 = p_hold.2;
+
+    println!();
+    println!("Deconstructing the p_hold tuple can look like this");
+    println!("{}, {}, and {} are all parts of a tuple", p4,p5,p6); // this is another way to print variable values using concatenation
+
+
+
 }
