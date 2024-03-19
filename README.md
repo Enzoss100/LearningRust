@@ -1,13 +1,14 @@
 ### LearningRust is a repo that lets me track how I am learning the Rust Programming Language
 
 **Table of Repo Contents**
-| Directory Name  | Description                      |
-| -------------   | -------------------------------- |
-| startRust       | First Project on Rust            |
-| bunsProject     | Small Project For Buns           |
-| test_inputs     | ChatGPT Assisted Project         |
-| guessing_game   | Based on the Rust Book           |
-| varTest         | Project to learn about Variables |
+| Directory Name  | Description                       |
+| -------------   | --------------------------------- |
+| startRust       | First Project on Rust             |
+| bunsProject     | Small Project For Buns            |
+| test_inputs     | ChatGPT Assisted Project          |
+| guessing_game   | Based on the Rust Book            |
+| var_test        | Project to learn about Variables  |
+| fn_test         | Project to learn Functions        |
 
 **Table of Conducted Tests**
 | Test Name             | Description                                        |
@@ -27,6 +28,8 @@
 | Mutability            | Shows how Rust allows variables to be mutable      |
 | Constants             | Shows how Rust deals with Constant variables       |
 | Data Types            | Tackles all data types: Singular and Compound      |
+| Declaring Functions   | Create a function with and without parameters      |
+| Passing Parameters    | Pass a parameter to a function called in `main()`  |
 
 **ChatGPT Content**
 | Content                  | Description                                            |
