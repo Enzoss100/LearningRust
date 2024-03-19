@@ -87,7 +87,6 @@ fn main() {
         the two types of `arch` declarations are `isize` and `usize` taking the range of 32-bit
         and 64-bit integers for signed and unsigned respectively
     
-    
     */
 
     // floating point integers
@@ -125,7 +124,6 @@ fn main() {
 
     /*
         The Tuple data type is able to store multiple data types into a single variable
-    
     */
 
     println!("{p1} is a character variable");
@@ -140,8 +138,32 @@ fn main() {
 
     println!();
     println!("Deconstructing the p_hold tuple can look like this");
-    println!("{}, {}, and {} are all parts of a tuple", p4,p5,p6); // this is another way to print variable values using concatenation
 
+    // this is another way to print variable values using concatenation
+    println!("{}, {}, and {} are all parts of a tuple", p4,p5,p6); 
 
+    // Arrays
+
+    let q: [i32;5] = [1,2,3,4,5];
+
+    /*
+        Unlike Tuples, arrays elements all have the same data type
+    */
+
+    // access array elements individually
+
+    let r = q[0];
+    println!("{r} is the first element in the array 'q'");
+
+    // access all elements in an array using a while loop
+    let mut index: usize = 0;
+
+    println!();`
+    println!("Let's call all the elements in the q array");
+    println!();
+    while index < 5 {
+        println!("{}",q[index]);
+        index += 1;
+    }
 
 }
