@@ -158,7 +158,7 @@ fn main() {
     // access all elements in an array using a while loop
     let mut index: usize = 0;
 
-    println!();`
+    println!();
     println!("Let's call all the elements in the q array");
     println!();
     while index < 5 {
