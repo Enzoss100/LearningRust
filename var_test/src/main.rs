@@ -79,6 +79,19 @@ fn main() {
     println!("{i} is a signed 128-bit integer");
     println!("{j} is an unsigned 128-bit integer");
 
+    /*
+    
+        As a side note, the `arch` data type is used to identify integers based on CPU architecture
+        This means that the 2 base types of the `arch` data type are 32-bit and 64-bit
+
+        the two types of `arch` declarations are `isize` and `usize` taking the range of 32-bit
+        and 64-bit integers for signed and unsigned respectively
+    
+    
+    */
+
+
+
 
     // floating point integers
 
