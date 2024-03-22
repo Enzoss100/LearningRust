@@ -1,0 +1,52 @@
+-- This File documents what projects adhere to The Rust Programming Language book --
+-- This File gives notes on what chapters are tackled in what project --
+-- This File will be listed in order of what directory is listed in the Repository --
+
+Note Structure is as Follows
+- Chapter 3.4 is all about comments, which is easy to do when coming from other languages
+- Comments are used as personal projects inside the source code of each project
+
+
+<Project Name>
+    - Adherence (Yes/No)
+    - Personal Notes (Yes/No)
+    - Chapters Takled (Enumerated in ascending order of chapter and topic)
+    - Extra Notes
+
+===================================================================================================
+bunsProject
+    - Adherence: Yes
+    - Personal Notes: Yes
+    - Chapters Tackled:
+        - Chapter 3.1
+        - Chapter 3.5
+fn_test
+    - Adherence: Yes
+    - Personal Notes: Yes
+    - Chapters Tackled:
+        - Chapter 3.3
+        - Chapter 3.5
+guessing_game
+    - Adherence: Yes
+    - Personal Notes: Yes
+    - Chapters Tackled:
+        - Chapter 2
+startRust
+    - Adherence: Yes
+    - Personal Notes: Yes
+    - Chapters Tackled:
+        - Chapter 1.2
+        - Chapter 3.5
+test_inputs
+    - Adherence: No
+    - Personal Notes: No
+    - Chapters Tackled:
+    - This project was created to test a proof of concept project I want to tackle
+    - This project was created with the assistance of ChatGPT
+    - Check this project at your own discretion
+var_test
+    - Adherence: Yes
+    - Personal Notes: Yes
+    - Chapters Tackled:
+        - Chapter 3.1
+        - Chapter 3.2
