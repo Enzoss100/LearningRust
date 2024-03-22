@@ -19,3 +19,7 @@
 - all the projects in this repository will have my own notes in it unless noted otherwise in `RepoNotes.txt`
 - this repository is meant to be a document of my own learning experience using Rust following the book
 - Rust is not my first programming language, so I will be reinforcing most of what I learned using other languages like C++, PHP, Java and Python to practice programming concepts while learning Rust as a language
+
+**DISCLAIMERS**
+- I am not trying to use this repository to **deliver open source software**
+- This repository is currently *in progress* and it will be continuously updated as I continue to study the language
