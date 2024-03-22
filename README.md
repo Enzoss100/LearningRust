@@ -13,7 +13,7 @@
 - there is also a `RepoNotes.txt` for keeping track of which projects tackle which chapter in the book
     - this file tracks which projects also adhere to what the book teaches from a *beginner* perspective
 
-### Notes from Me:
+## Notes from Me:
 - if there are projects here are noted in `RepoNotes.txt` as not adhering to the book it was added as part of my personal learning experience with Rust
 - this repository will not be a 1:1 recreation of the code snippets seen in the book
 - all the projects in this repository will have my own notes in it unless noted otherwise in `RepoNotes.txt`
