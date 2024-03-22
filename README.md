@@ -2,7 +2,7 @@
 
 - This Repo consists of projects that compile practice projects for learning Rust.
 - This project directly follows *The Rust Programming Language* book that comes with installing `rustup`
-- The goal of tis repository is to be a public documentation of how I tackled learning Rust
+- The goal of this repository is to be a public documentation of how I tackled learning Rust
 
 **None of this repository contains software that is actually usable for real practical things**
 
