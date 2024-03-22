@@ -1,15 +1,16 @@
 ### LearningRust is a repo that lets me track how I am learning the Rust Programming Language
 
 **Table of Repo Contents**
-| Directory Name  | Description                                  |
-| -------------   | -------------------------------------------- |
-| _RepoArchive    | Notes Archive to keep track of Repo Contents |
-| startRust       | First Project on Rust                        |
-| bunsProject     | Small Project For Buns                       |
-| test_inputs     | ChatGPT Assisted Project                     |
-| guessing_game   | Based on the Rust Book                       |
-| var_test        | Project to learn about Variables             |
-| fn_test         | Project to learn Functions                   |
+| Directory Name  | Description                                    |
+| -------------   | ---------------------------------------------- |
+| _RepoArchive    | Notes Archive to keep track of Repo Contents   |
+| startRust       | First Project on Rust                          |
+| bunsProject     | Small Project For Buns                         |
+| test_inputs     | ChatGPT Assisted Project                       |
+| guessing_game   | Based on the Rust Book                         |
+| var_test        | Project to learn about Variables               |
+| fn_test         | Project to learn Functions                     |
+| mem_owner       | Project to learn about Ownership and Borrowing |
 
 **Table of Conducted Tests**
 | Test Name             | Description                                        |
