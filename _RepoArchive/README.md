@@ -32,6 +32,7 @@
 | Data Types            | Tackles all data types: Singular and Compound      |
 | Declaring Functions   | Create a function with and without parameters      |
 | Passing Parameters    | Pass a parameter to a function called in `main()`  |
+| For loops             | Use for loop to read elements in an array          |
 
 **ChatGPT Content**
 | Content                  | Description                                            |

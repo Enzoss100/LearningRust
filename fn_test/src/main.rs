@@ -7,6 +7,7 @@ fn main() {
     conflow2();
     conflow3();
     labloop();
+    arrcall();
 }
 
 
@@ -95,4 +96,13 @@ fn labloop() {
     }
     println!("End count = {count}");
 
+}
+
+fn arrcall() {
+    let list:[i32;5]= [10, 20, 30, 40, 50];
+    
+
+    for i in list {
+        print!("{i} ");
+    }
 }
