@@ -5,6 +5,8 @@ fn main() {
     println!("{} is a return value",testint());
     conflow1(15);
     conflow2();
+    conflow3();
+    labloop();
 }
 
 
@@ -51,4 +53,46 @@ fn conflow2() {
                 19
             };
     println!("{z} is the value of the variable 'z'");
+}
+
+fn conflow3() {
+    let mut count: i32 = 0;
+
+    loop {
+        println!("Iteration: {count}");
+        count += 1;
+        if count == 10 {
+            println!("Ended at {count}");
+            break;
+            
+        }
+    }
+}
+
+fn labloop() {
+    let mut count = 0;
+    'counting_up: loop { //labels this outter loop counting_up
+        println!("count = {count}"); //prints 0
+        let mut remaining = 10;
+
+        loop { //unlabelled inner loop
+            println!("remaining = {remaining}"); //prints 10
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up; //breaks the outter loop named counting_up
+            }
+            remaining -= 1; //decreases from 10 to 9, initiating the break of the unlabelled loop
+        }
+
+        count += 1; //increases the count to 1, loop continues because count is not 2
+        /*
+
+            The outter loop reinitializes `remaining` to 10 at count 2
+
+        */
+    }
+    println!("End count = {count}");
+
 }
