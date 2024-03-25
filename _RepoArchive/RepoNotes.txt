@@ -46,6 +46,7 @@ startRust
     - Chapters Tackled:
         - Chapter 1.2
         - Chapter 3.5
+
 test_inputs
     - Adherence: No
     - Personal Notes: No
@@ -54,6 +55,7 @@ test_inputs
     - This project was created to test a proof of concept project I want to tackle
     - This project was created with the assistance of ChatGPT
     - Check this project at your own discretion
+    
 var_test
     - Adherence: Yes
     - Personal Notes: Yes
