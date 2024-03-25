@@ -13,26 +13,27 @@
 | mem_owner       | Project to learn about Ownership and Borrowing |
 
 **Table of Conducted Tests**
-| Test Name             | Description                                        |
-| --------------------- | -------------------------------------------------- |
-| Hello World           | Printed "Hello World"                              |
-| Variable String       | Initialized a string variable                      |
-| Variable Int          | Initialized an integer variable                    |
-| If Conditional        | Tested Conditional Statements                      |
-| Comments              | Used Comments to Explain Code                      |
-| While Loops           | Used a while loop with a mutable int variable      |
-| User Input            | Used the std::io library for user input            |
-| References            | First usage of references                          |
-| Dependencies          | Using `cargo.toml` to add new crates               |
-| Match Expression      | Using match expressions to find correct patterns   |
-| loop keyword          | Loops a process infinitely                         |
-| break statement       | Breaks the infinite loop                           |
-| Mutability            | Shows how Rust allows variables to be mutable      |
-| Constants             | Shows how Rust deals with Constant variables       |
-| Data Types            | Tackles all data types: Singular and Compound      |
-| Declaring Functions   | Create a function with and without parameters      |
-| Passing Parameters    | Pass a parameter to a function called in `main()`  |
-| For loops             | Use for loop to read elements in an array          |
+| Test Name             | Description                                         |
+| --------------------- | --------------------------------------------------- |
+| Hello World           | Printed "Hello World"                               |
+| Variable String       | Initialized a string variable                       |  
+| Variable Int          | Initialized an integer variable                     | 
+| If Conditional        | Tested Conditional Statements                       |
+| Comments              | Used Comments to Explain Code                       |
+| While Loops           | Used a while loop with a mutable int variable       | 
+| User Input            | Used the std::io library for user input             |
+| References            | First usage of references                           |
+| Dependencies          | Using `cargo.toml` to add new crates                |
+| Match Expression      | Using match expressions to find correct patterns    |
+| loop keyword          | Loops a process infinitely                          |
+| break statement       | Breaks the infinite loop                            |
+| Mutability            | Shows how Rust allows variables to be mutable       |
+| Constants             | Shows how Rust deals with Constant variables        |
+| Data Types            | Tackles all data types: Singular and Compound       |
+| Declaring Functions   | Create a function with and without parameters       |
+| Passing Parameters    | Pass a parameter to a function called in `main()`   |
+| For loops             | Use for loop to read elements in an array           |
+| Clone Function        | Used for copying data from the heap from var to var |
 
 **ChatGPT Content**
 | Content                  | Description                                            |
