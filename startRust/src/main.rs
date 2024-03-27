@@ -1,11 +1,13 @@
-#[allow(non_snake_case)]
+#![allow(nonstandard_style)]
+#![allow(non_snake_case)]
+
 
 fn main() {
     // Hello World, the traditional first print of any programming language
     println!("Hello, world!");
 
     // Testing String Variable
-    let mut new_Var = "Testing Strings";
+    let new_Var = "Testing Strings";
 
     // Print String Variable
     println!("{new_Var}");

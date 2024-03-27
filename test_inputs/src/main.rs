@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
+
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write};
 use std::process;

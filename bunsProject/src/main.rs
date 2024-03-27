@@ -1,4 +1,5 @@
-#[allow(non_snake_case)]
+#![allow(nonstandard_style)]
+#![allow(non_snake_case)]
 
 fn main() {
     println!("Hello, Buns!");
