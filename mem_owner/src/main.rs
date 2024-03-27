@@ -35,6 +35,11 @@ fn main() {
         calc_len that takes the value of string3
     */
     println!("The length of {} is {}", string4, len); //prints the values in the tuple individually
+
+    let string5 = String::from("New String");
+    let len2 = ref_borrow(&string5); // here we have len2 borrowing the value of string5
+
+    print!("The length of {string5} is {len2}");
 }
 
 fn calc_len(s: String) -> (String, usize){ 
@@ -49,4 +54,10 @@ fn calc_len(s: String) -> (String, usize){
         The function checks through the pointer of string3, and uses the len() function to check 
         the length of the string given in the heap memory (not the capacity)
     */
+}
+
+fn ref_borrow(s_borrow: &String)  -> usize {
+    s_borrow.len()
+    // here we have a function with a borrowed parameter which is a String that will be returning 
+    // a usize data type value
 }
