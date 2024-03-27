@@ -34,6 +34,8 @@
 | Passing Parameters    | Pass a parameter to a function called in `main()`   |
 | For loops             | Use for loop to read elements in an array           |
 | Clone Function        | Used for copying data from the heap from var to var |
+| `len()` Function      | Used to parse the length of a string                |
+| Referencing           | Using `&` to reference values of variables          |
 
 **ChatGPT Content**
 | Content                  | Description                                            |
