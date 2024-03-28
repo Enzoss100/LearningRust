@@ -39,7 +39,11 @@ fn main() {
     let string5 = String::from("New String");
     let len2 = ref_borrow(&string5); // here we have len2 borrowing the value of string5
 
-    print!("The length of {string5} is {len2}");
+    println!("The length of {string5} is {len2}");
+
+    let mut string6 = String::from("Enzoss100");
+    change_str(&mut string6);
+
 }
 
 fn calc_len(s: String) -> (String, usize){ 
@@ -60,4 +64,11 @@ fn ref_borrow(s_borrow: &String)  -> usize {
     s_borrow.len()
     // here we have a function with a borrowed parameter which is a String that will be returning 
     // a usize data type value
+}
+
+fn change_str(s_borrow: &mut String) {
+    s_borrow.push_str(", The Rust Programmer");
+    println!("{}", s_borrow)
+    // This function uses a borrowed mutable string
+    // prints the mutated referenced string
 }
