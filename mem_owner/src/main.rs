@@ -46,6 +46,11 @@ fn main() {
 
 }
 
+
+
+
+
+
 fn calc_len(s: String) -> (String, usize){ 
     // the function expects a String and will return a String and usize
     let length = s.len(); // returns the length of the string obtained by s
