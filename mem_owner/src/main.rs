@@ -34,7 +34,7 @@ fn main() {
         This tuple of string4 and len are initialized to the function of 
         calc_len that takes the value of string3
     */
-    println!("The length of {} is {}", string4, len); //prints the values in the tuple individually
+    println!("The length of {} is {}", string4, len); // prints the values in the tuple individually
 
     let string5 = String::from("New String");
     let len2 = ref_borrow(&string5); // here we have len2 borrowing the value of string5
@@ -44,6 +44,8 @@ fn main() {
     let mut string6 = String::from("Enzoss100");
     change_str(&mut string6);
 
+    let retstring = stringret(); // you can initialize variables with the return value of a function
+    println!("{}", retstring);
 }
 
 
@@ -76,4 +78,13 @@ fn change_str(s_borrow: &mut String) {
     println!("{}", s_borrow)
     // This function uses a borrowed mutable string
     // prints the mutated referenced string
+}
+
+fn stringret() -> String {
+    let newstring = String::from("String Returned");
+
+    return newstring;
+    // this returns a String data type
+    // this kind of returning of values in a function helps avoiding "Dangling Pointers"
+    // you can see that there is no reference for the variable newstring
 }
