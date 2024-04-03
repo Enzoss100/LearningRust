@@ -46,6 +46,8 @@ fn main() {
 
     let retstring = stringret(); // you can initialize variables with the return value of a function
     println!("{}", retstring);
+
+
 }
 
 
@@ -88,3 +90,4 @@ fn stringret() -> String {
     // this kind of returning of values in a function helps avoiding "Dangling Pointers"
     // you can see that there is no reference for the variable newstring
 }
+
