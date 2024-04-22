@@ -46,7 +46,10 @@ fn main() {
 
     let retstring = stringret(); // you can initialize variables with the return value of a function
     println!("{}", retstring);
+    
+    println!();
 
+    stringslice();
 
 }
 
@@ -91,3 +94,27 @@ fn stringret() -> String {
     // you can see that there is no reference for the variable newstring
 }
 
+fn stringslice() {
+    let slice = String::from("New Slice Type");
+
+    let sl1 = &slice[0..3];
+    let sl2 = &slice[4..9];
+    let sl3 = &slice[10..14];
+
+    println!("{}",sl1); // prints New
+    println!("{}",sl2); // prints Slice
+    println!("{}",sl3); // prints Type
+    println!("{}{}{}", sl1, sl2, sl3); // prints NewSliceType
+
+    /*
+        It can be seen in this function that the range of each string slice starting from 0 is n-1
+
+        Example:
+            New has 3 characters, from 0 to 2
+            but the slice type reads even the character before N
+            so 0 to 2 would result in "Ne" instead of "New"
+
+        It can also be seen that the Slice does not count whitespaces in the bit range
+    */
+
+}

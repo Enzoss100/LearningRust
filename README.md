@@ -13,6 +13,13 @@
 - there is also a [`RepoNotes.txt`](https://github.com/Enzoss100/LearningRust/blob/main/_RepoArchive/RepoNotes.txt) for keeping track of which projects tackle which chapter in the book
     - this file tracks which projects also adhere to what the book teaches from a *beginner* perspective
 
+## Contribution
+This repository will **not** accept any outside input since it is a public tracking of a personal learning experience.
+
+You may choose to fork this repository and add things on your own, however all pull requests will be reviewed and *denied*.
+
+Host your own forks and document your own learning! It will be of huge help to any beginner trying to learn the language and is looking for reference.
+
 ##   Notes from Me:
 - if there are projects here are noted in [`RepoNotes.txt`](https://github.com/Enzoss100/LearningRust/blob/main/_RepoArchive/RepoNotes.txt) as not adhering to the book it was added as part of my personal learning experience with Rust
 - this repository will not be a 1:1 recreation of the code snippets seen in the book
