@@ -50,11 +50,12 @@ fn main() {
     println!();
 
     stringslice();
+    println!();
+    _stringslice2();
+
+    
 
 }
-
-
-
 
 
 
@@ -114,7 +115,31 @@ fn stringslice() {
             but the slice type reads even the character before N
             so 0 to 2 would result in "Ne" instead of "New"
 
-        It can also be seen that the Slice does not count whitespaces in the bit range
+    */
+
+}
+
+
+fn _stringslice2() {
+    let slice = String::from("Testing Word");
+
+    let sl1 = &slice[..4];
+    let sl2 = &slice[..7];
+    let sl3 = &slice[..8];
+    let sl4 = &slice[..9];
+    let sl5 = &slice[8..];
+    let sl6 = &slice[7..];
+
+    println!("{}",sl1); // Test
+    println!("{}",sl2); // Testing
+    println!("{}",sl3); // Testing /whitespace/
+    println!("{}",sl4); // Testing W
+    println!("{}",sl5); // Word
+    println!("{}",sl6); // /whitespace/ Word
+
+    /*
+        This function shows in action how string slices are printed including the whitespace
+        Running this function allows the user to analyse what is being printed out character by character
     */
 
 }
